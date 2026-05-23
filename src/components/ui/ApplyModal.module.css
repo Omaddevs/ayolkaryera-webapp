@@ -1,0 +1,175 @@
+.form { display: flex; flex-direction: column; gap: 16px; }
+
+/* Job card preview */
+.jobCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface-2);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 14px;
+}
+
+.jobLogo {
+  width: 46px; height: 46px;
+  border-radius: var(--r);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; text-align: center; padding: 4px;
+}
+
+.jobInfo { flex: 1; min-width: 0; }
+.jobTitle  { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.jobCompany { font-size: 12px; color: var(--text-3); margin-bottom: 5px; }
+.jobMeta { display: flex; gap: 8px; flex-wrap: wrap; }
+.jobMeta span { display: flex; align-items: center; gap: 3px; font-size: 11px; color: var(--text-3); }
+
+.verBadge { flex-shrink: 0; }
+
+/* Already applied */
+.alreadyApplied {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px; background: var(--success-bg);
+  border: 1.5px solid var(--success-border);
+  border-radius: var(--r); font-size: 13.5px;
+  color: #065f46; font-weight: 500;
+}
+
+/* Section */
+.section { display: flex; flex-direction: column; gap: 8px; }
+.sectionTitle {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 700; color: var(--text);
+}
+
+/* CV options */
+.cvOption {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r); cursor: pointer;
+  transition: all var(--t);
+}
+.cvOption input { display: none; }
+.cvOption:hover { border-color: var(--primary-20); }
+.cvOptionActive { border-color: var(--primary) !important; background: var(--primary-bg) !important; }
+
+.cvOptionContent { flex: 1; }
+.cvName  { display: block; font-size: 13px; font-weight: 600; color: var(--text); }
+.cvDate  { display: block; font-size: 11px; color: var(--text-3); margin-top: 2px; }
+
+/* Textarea */
+.textarea {
+  width: 100%; padding: 11px 13px;
+  border: 1.5px solid var(--border); border-radius: var(--r);
+  font-size: 13px; color: var(--text); background: var(--surface-2);
+  resize: vertical; min-height: 100px; line-height: 1.6;
+  transition: border-color var(--t);
+}
+.textarea:focus { border-color: var(--primary); background: var(--surface); outline: none; box-shadow: 0 0 0 3px var(--primary-10); }
+.textarea::placeholder { color: var(--text-muted); }
+.charCount { font-size: 11px; color: var(--text-muted); text-align: right; }
+
+/* Tip */
+.tipBox {
+  display: flex; align-items: flex-start; gap: 8px;
+  background: #FFFBEB; border: 1px solid #FDE68A;
+  border-radius: var(--r); padding: 10px 12px;
+  font-size: 12.5px; color: #92400E; line-height: 1.5;
+}
+
+/* Agreement */
+.agreeRow {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12.5px; color: var(--text-2); cursor: pointer;
+}
+.agreeRow input { accent-color: var(--primary); width: 15px; height: 15px; }
+
+/* Actions */
+.actions { display: flex; gap: 10px; padding-top: 4px; }
+
+.cancelBtn {
+  flex: 1; padding: 11px;
+  border: 1.5px solid var(--border); border-radius: var(--r);
+  font-size: 13.5px; font-weight: 600; color: var(--text-2);
+  transition: all var(--t);
+}
+.cancelBtn:hover { border-color: var(--primary); color: var(--primary); }
+
+.submitBtn {
+  flex: 2; padding: 11px;
+  background: var(--primary); color: #fff;
+  border-radius: var(--r); font-size: 13.5px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  box-shadow: var(--shadow-primary); transition: background var(--t);
+}
+.submitBtn:hover:not(:disabled) { background: var(--primary-dark); }
+.submitBtn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.spinner {
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Success */
+.success {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 16px; padding: 8px 4px 8px;
+  text-align: center;
+}
+
+.successIcon {
+  width: 90px; height: 90px; border-radius: 50%;
+  background: var(--success-bg); border: 3px solid var(--success-border);
+  display: flex; align-items: center; justify-content: center;
+  animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes pop {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.successTitle { font-size: 20px; font-weight: 800; color: var(--text); }
+
+.successMsg {
+  font-size: 14px; color: var(--text-3); line-height: 1.65;
+  max-width: 380px;
+}
+
+.successSteps {
+  display: flex; align-items: center; gap: 8px;
+  flex-wrap: wrap; justify-content: center;
+}
+.step {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 600; color: var(--text-2);
+}
+.stepNum {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--primary); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800;
+}
+.stepArrow { font-size: 16px; color: var(--text-muted); }
+
+.successActions {
+  display: flex; gap: 10px; width: 100%; flex-wrap: wrap;
+}
+.arizalarimBtn {
+  flex: 1; padding: 11px;
+  border: 1.5px solid var(--primary); color: var(--primary);
+  border-radius: var(--r); font-size: 13.5px; font-weight: 600;
+  transition: all var(--t);
+}
+.arizalarimBtn:hover { background: var(--primary-light); }
+.doneBtn {
+  flex: 1; padding: 11px;
+  background: var(--primary); color: #fff;
+  border-radius: var(--r); font-size: 13.5px; font-weight: 700;
+  box-shadow: var(--shadow-primary); transition: background var(--t);
+}
+.doneBtn:hover { background: var(--primary-dark); }

@@ -1,0 +1,199 @@
+.page { display: flex; flex-direction: column; gap: 18px; }
+
+.header { }
+.title { font-size: 22px; font-weight: 800; color: var(--text); }
+.sub { font-size: 13px; color: var(--text-3); margin-top: 3px; }
+
+/* Stats */
+.statsRow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.statCard {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 14px 8px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: var(--r-md); cursor: pointer;
+  transition: all var(--t); text-align: center;
+  color: var(--text-3);
+}
+.statCard:hover { border-color: var(--stat-color,var(--primary)); color: var(--stat-color,var(--primary)); }
+.statActive { border-color: var(--stat-color,var(--primary)) !important; background: var(--stat-bg,var(--primary-bg)) !important; color: var(--stat-color,var(--primary)) !important; }
+.statNum { font-size: 20px; font-weight: 800; }
+.statLabel { font-size: 10px; font-weight: 600; line-height: 1.3; }
+
+/* Tabs */
+.tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; }
+.tabs::-webkit-scrollbar { display: none; }
+
+.tab {
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-full);
+  font-size: 12.5px; font-weight: 500; color: var(--text-3);
+  white-space: nowrap; background: var(--surface);
+  transition: all var(--t); flex-shrink: 0;
+}
+.tab:hover { border-color: var(--primary); color: var(--primary); }
+.tabActive { border-color: var(--primary) !important; background: var(--primary-bg) !important; color: var(--primary) !important; font-weight: 700; }
+.tabCount {
+  background: var(--surface-2); color: var(--text-muted);
+  font-size: 10px; font-weight: 700;
+  min-width: 18px; height: 18px; border-radius: var(--r-full);
+  display: flex; align-items: center; justify-content: center; padding: 0 4px;
+}
+.tabActive .tabCount { background: var(--primary); color: #fff; }
+
+/* List */
+.list { display: flex; flex-direction: column; gap: 8px; }
+
+.card {
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: var(--r-md); padding: 16px 18px;
+  cursor: pointer; transition: all var(--t);
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  box-shadow: var(--shadow-xs);
+}
+.card:hover { border-color: var(--primary-20); box-shadow: var(--shadow-sm); }
+
+.cardLeft { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
+
+.logo {
+  width: 46px; height: 46px; border-radius: var(--r);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; text-align: center; padding: 4px;
+}
+
+.info { flex: 1; min-width: 0; }
+.jobTitle { font-size: 13.5px; font-weight: 600; color: var(--text); margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.company { font-size: 12px; color: var(--text-3); margin-bottom: 5px; }
+
+.meta { display: flex; gap: 6px; flex-wrap: wrap; }
+.metaTag {
+  display: flex; align-items: center; gap: 3px;
+  font-size: 10.5px; color: var(--text-3);
+  background: var(--surface-2); border: 1px solid var(--border);
+  padding: 2px 7px; border-radius: var(--r-full);
+}
+
+.cardRight { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+
+.statusBadge {
+  display: flex; align-items: center; gap: 5px;
+  padding: 4px 12px; border-radius: var(--r-full);
+  font-size: 11.5px; font-weight: 700; white-space: nowrap;
+}
+
+.salary { font-size: 13.5px; font-weight: 700; color: var(--text); white-space: nowrap; }
+
+.chevron { color: var(--text-muted); transition: transform var(--t); }
+.chevOpen { transform: rotate(90deg); }
+
+/* Detail */
+.detail {
+  width: 100%; margin-top: 14px; padding-top: 14px;
+  border-top: 1px dashed var(--border);
+  display: flex; flex-direction: column; gap: 12px;
+}
+
+/* Timeline */
+.timeline { display: flex; align-items: center; gap: 0; overflow-x: auto; padding: 4px 0; }
+.timelineStep { display: flex; align-items: center; gap: 0; flex-shrink: 0; }
+.timelineDot {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface-2); color: var(--text-muted);
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+.dotDone { background: var(--success-bg); color: var(--success); border-color: var(--success); }
+.dotCurrent { background: var(--purple-bg); color: var(--purple); border-color: var(--purple); box-shadow: 0 0 0 3px rgba(139,92,246,0.15); }
+.dotRejected { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--error-bg); color: var(--error); border: 2px solid var(--error); flex-shrink: 0; }
+
+.timelineLabel { font-size: 10px; color: var(--text-3); padding: 0 8px; white-space: nowrap; }
+.timelineLine { width: 30px; height: 2px; background: var(--border); }
+.lineDone { background: var(--success); }
+
+.nextStep {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--purple-bg); border-radius: var(--r);
+  padding: 10px 14px; font-size: 13px; color: var(--text-2);
+}
+
+.notes {
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 12px; font-size: 13px; color: var(--text-2); line-height: 1.6;
+}
+
+.detailActions { display: flex; gap: 8px; }
+.msgBtn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border: 1.5px solid var(--border);
+  border-radius: var(--r); font-size: 13px; font-weight: 600; color: var(--text-2);
+  transition: all var(--t);
+}
+.msgBtn:hover { border-color: var(--primary); color: var(--primary); }
+
+.confBtn {
+  padding: 8px 16px; background: var(--primary); color: #fff;
+  border-radius: var(--r); font-size: 13px; font-weight: 600;
+  transition: background var(--t);
+}
+.confBtn:hover { background: var(--primary-dark); }
+
+.withdrawBtn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 16px;
+  border: 1.5px solid var(--error-border, #FCA5A5);
+  border-radius: var(--r); font-size: 13px; font-weight: 600;
+  color: var(--error); transition: all var(--t);
+  background: var(--error-bg);
+}
+.withdrawBtn:hover { background: var(--error); color: #fff; }
+
+.cardOpen { border-color: var(--primary-20) !important; }
+
+/* Rate stars */
+.rateBox { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.rateLabel { font-size: 13px; color: var(--text-2); font-weight: 500; }
+.stars { display: flex; align-items: center; gap: 2px; }
+.starBtn { display: flex; align-items: center; transition: transform var(--t); }
+.starBtn:hover { transform: scale(1.2); }
+.ratedText { font-size: 12px; color: var(--text-3); margin-left: 6px; font-weight: 600; }
+
+/* Confirm modal */
+.confirmBody { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.confirmIcon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: #FFFBEB; border: 2px solid #FDE68A;
+  display: flex; align-items: center; justify-content: center;
+}
+.confirmText { font-size: 14px; color: var(--text-2); line-height: 1.6; max-width: 300px; }
+.confirmActions { display: flex; gap: 10px; width: 100%; }
+.cancelBtn {
+  flex: 1; padding: 11px;
+  border: 1.5px solid var(--border); border-radius: var(--r);
+  font-size: 13.5px; font-weight: 600; color: var(--text-2);
+  transition: all var(--t);
+}
+.cancelBtn:hover { border-color: var(--primary); color: var(--primary); }
+.confirmWithdrawBtn {
+  flex: 1; padding: 11px;
+  background: var(--error); color: #fff;
+  border-radius: var(--r); font-size: 13.5px; font-weight: 700;
+  transition: background var(--t);
+}
+.confirmWithdrawBtn:hover { background: #DC2626; }
+
+.empty {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  padding: 40px; color: var(--text-muted); font-size: 14px; text-align: center;
+}
+
+@media (max-width: 767px) {
+  .statsRow { grid-template-columns: repeat(3, 1fr); }
+  .cardRight { flex-wrap: wrap; }
+  .salary { display: none; }
+}
+
+@media (max-width: 480px) {
+  .statsRow { grid-template-columns: repeat(2, 1fr); }
+  .cardLeft { align-items: flex-start; }
+}

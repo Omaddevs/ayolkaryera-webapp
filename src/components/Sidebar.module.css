@@ -1,0 +1,214 @@
+.sidebar {
+  width: 230px;
+  min-width: 230px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 16px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logoIcon { flex-shrink: 0; }
+
+.logoText {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.logoSub {
+  font-size: 10px;
+  color: var(--gray);
+  line-height: 1.3;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 10px;
+  flex: 1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--gray);
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: all 0.18s;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+
+.navItem:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.navActive {
+  background: var(--primary) !important;
+  color: white !important;
+}
+
+.navActive .navIcon { color: white; }
+
+.navIcon { flex-shrink: 0; }
+
+.navLabel { flex: 1; }
+
+.badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 20px;
+  line-height: 1.4;
+}
+
+.badgeNew {
+  background: var(--primary);
+  color: white;
+}
+
+.navActive .badgeNew {
+  background: white;
+  color: var(--primary);
+}
+
+.badgeCount {
+  background: #fee2e2;
+  color: #ef4444;
+  min-width: 18px;
+  text-align: center;
+}
+
+.navActive .badgeCount {
+  background: rgba(255,255,255,0.25);
+  color: white;
+}
+
+.aiCard {
+  margin: 10px;
+  background: linear-gradient(135deg, #fff0f8 0%, #fce4f3 100%);
+  border: 1.5px solid #f8c6e8;
+  border-radius: var(--radius);
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.aiTop {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.aiLabel {
+  font-size: 11px;
+  color: var(--primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.aiTitle {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.aiDesc {
+  font-size: 11.5px;
+  color: var(--gray);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.aiBtn {
+  background: var(--primary);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  transition: background 0.18s;
+}
+
+.aiBtn:hover { background: var(--primary-hover); }
+
+.aiDeco {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 28px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.aiStar {
+  position: absolute;
+  right: -6px;
+  top: -14px;
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.darkToggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--gray);
+  font-weight: 500;
+}
+
+.darkLabel { flex: 1; }
+
+.toggle {
+  width: 36px;
+  height: 20px;
+  border-radius: 20px;
+  background: var(--border);
+  position: relative;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.toggleOn { background: var(--primary); }
+
+.toggleThumb {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: left 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.toggleOn .toggleThumb { left: 19px; }

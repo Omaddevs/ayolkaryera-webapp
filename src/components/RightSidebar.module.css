@@ -1,0 +1,225 @@
+.sidebar {
+  width: 290px;
+  min-width: 290px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px 16px 16px 0;
+}
+
+.profileCard {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.profileTop {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.avatarWrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid var(--primary-light);
+  flex-shrink: 0;
+  background: var(--primary-light);
+}
+
+.avatar { width: 100%; height: 100%; object-fit: cover; }
+
+.profileName {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 3px;
+}
+
+.profileLocation {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  color: var(--gray);
+  margin-bottom: 4px;
+}
+
+.profileRole {
+  font-size: 12.5px;
+  color: var(--gray);
+  font-weight: 500;
+}
+
+.progress { margin-bottom: 12px; }
+
+.progressLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--gray);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.progressPct {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.progressBar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, #ff6bb5 100%);
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.fillBtn {
+  width: 100%;
+  padding: 9px;
+  border: 1.5px solid var(--primary);
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.18s;
+}
+
+.fillBtn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.seeAll {
+  font-size: 12px;
+  color: var(--primary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.companiesGrid {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.companyLogo {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.18s;
+}
+
+.companyLogo:hover { transform: scale(1.06); }
+
+.moreCompany {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--gray);
+  transition: all 0.18s;
+}
+
+.moreCompany:hover { border-color: var(--primary); color: var(--primary); }
+
+.verifiedBadge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  font-size: 11.5px;
+  color: #166534;
+  font-weight: 500;
+}
+
+.toolsList { display: flex; flex-direction: column; gap: 4px; }
+
+.toolItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px;
+  border-radius: var(--radius-sm);
+  width: 100%;
+  text-align: left;
+  transition: background 0.18s;
+  cursor: pointer;
+}
+
+.toolItem:hover { background: var(--bg); }
+
+.toolIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.toolInfo { flex: 1; min-width: 0; }
+
+.toolTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 2px;
+}
+
+.toolDesc {
+  font-size: 11px;
+  color: var(--gray);
+  line-height: 1.4;
+}

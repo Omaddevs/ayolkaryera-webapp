@@ -1,0 +1,230 @@
+.page { display: flex; flex-direction: column; gap: 18px; max-width: 700px; }
+
+.pageTitle { font-size: 22px; font-weight: 800; color: var(--text); }
+
+.section {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); overflow: hidden; box-shadow: var(--shadow-xs);
+}
+
+.sectionHead {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 18px; border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.sectionIcon {
+  width: 32px; height: 32px; border-radius: var(--r);
+  background: var(--primary-light); color: var(--primary);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+
+.sectionTitle { font-size: 14px; font-weight: 700; color: var(--text); }
+
+.sectionBody { display: flex; flex-direction: column; }
+
+/* Profile */
+.profileRow {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px; flex-wrap: wrap;
+}
+
+.avatarWrap { position: relative; flex-shrink: 0; }
+
+.avatar {
+  width: 80px; height: 80px; border-radius: 50%; overflow: hidden;
+  border: 3px solid var(--primary-light); cursor: pointer;
+}
+.avatarImg { width: 100%; height: 100%; object-fit: cover; }
+
+.cameraBtn {
+  position: absolute; bottom: 0; right: 0;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--primary); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--surface);
+  transition: background var(--t);
+}
+.cameraBtn:hover { background: var(--primary-dark); }
+
+.profileMeta { flex: 1; }
+.profileName { font-size: 16px; font-weight: 700; color: var(--text); }
+.profileSub { font-size: 13px; color: var(--text-3); margin-top: 2px; margin-bottom: 10px; }
+
+.completion { display: flex; flex-direction: column; gap: 4px; }
+.compLabel { font-size: 12px; color: var(--text-3); }
+.compBar { height: 5px; background: var(--border); border-radius: var(--r-full); width: 200px; overflow: hidden; }
+.compFill { height: 100%; background: linear-gradient(90deg, var(--primary), #ff6bb5); border-radius: var(--r-full); }
+
+.editBtn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border: 1.5px solid var(--border);
+  border-radius: var(--r); font-size: 13px; font-weight: 600; color: var(--text-2);
+  transition: all var(--t); flex-shrink: 0;
+}
+.editBtn:hover { border-color: var(--primary); color: var(--primary); }
+.editActive { border-color: var(--error); color: var(--error); }
+
+.editForm {
+  padding: 0 20px 20px; display: flex; flex-direction: column; gap: 14px;
+}
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.field { display: flex; flex-direction: column; gap: 5px; }
+.fieldLabel { font-size: 12.5px; font-weight: 600; color: var(--text-2); }
+.fieldInput {
+  padding: 9px 12px; border: 1.5px solid var(--border);
+  border-radius: var(--r); font-size: 13.5px; color: var(--text);
+  background: var(--surface-2); width: 100%;
+  transition: border-color var(--t);
+}
+.fieldInput:focus { border-color: var(--primary); background: var(--surface); outline: none; }
+
+.saveBtn {
+  display: flex; align-items: center; gap: 7px;
+  padding: 10px 22px; background: var(--primary); color: #fff;
+  border-radius: var(--r); font-size: 13.5px; font-weight: 600;
+  box-shadow: var(--shadow-primary); transition: background var(--t);
+  align-self: flex-start;
+}
+.saveBtn:hover { background: var(--primary-dark); }
+
+/* Row (toggle row) */
+.row {
+  display: flex; align-items: center;
+  padding: 14px 18px; gap: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.row:last-child { border-bottom: none; }
+
+.rowLeft { flex: 1; display: flex; align-items: center; gap: 10px; }
+.rowIcon { color: var(--text-3); flex-shrink: 0; }
+.rowLabel { font-size: 13.5px; font-weight: 600; color: var(--text); }
+.rowDesc { font-size: 12px; color: var(--text-3); margin-top: 1px; }
+
+.toggle {
+  width: 44px; height: 24px; border-radius: var(--r-full);
+  background: var(--border-2); position: relative;
+  transition: background var(--t); flex-shrink: 0;
+}
+.toggleOn { background: var(--primary); }
+.thumb {
+  display: block; width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; position: absolute; top: 3px; left: 3px;
+  transition: left var(--t); box-shadow: var(--shadow-xs);
+}
+.toggleOn .thumb { left: 23px; }
+
+.langSelect {
+  padding: 7px 12px; border: 1.5px solid var(--border);
+  border-radius: var(--r); font-size: 13px; color: var(--text);
+  background: var(--surface-2); cursor: pointer;
+  transition: border-color var(--t);
+}
+.langSelect:focus { border-color: var(--primary); }
+
+/* Premium */
+.premiumCard {
+  display: flex; align-items: center; gap: 14px;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1.5px solid #fde68a; border-radius: var(--r-md);
+  padding: 18px 20px; flex-wrap: wrap;
+}
+.premEmoji { font-size: 32px; flex-shrink: 0; }
+.premInfo { flex: 1; }
+.premTitle { font-size: 15px; font-weight: 800; color: #92400e; }
+.premDesc { font-size: 12.5px; color: #b45309; margin-top: 3px; line-height: 1.5; }
+.premBtn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 10px 18px; background: var(--warning); color: #fff;
+  border-radius: var(--r); font-size: 13px; font-weight: 700;
+  transition: background var(--t); white-space: nowrap;
+}
+.premBtn:hover { background: #d97706; }
+
+/* Password section */
+.pwForm { padding: 0 20px 20px; display: flex; flex-direction: column; gap: 14px; }
+.pwFieldWrap { position: relative; }
+.eyeBtn {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  color: var(--text-muted); display: flex; align-items: center; transition: color var(--t);
+}
+.eyeBtn:hover { color: var(--text); }
+.pwActions { display: flex; gap: 10px; }
+.cancelBtn {
+  padding: 9px 16px; border: 1.5px solid var(--border);
+  border-radius: var(--r); font-size: 13px; font-weight: 600; color: var(--text-2);
+  transition: all var(--t);
+}
+.cancelBtn:hover { border-color: var(--primary); color: var(--primary); }
+
+.sectionAction {
+  display: flex; align-items: center; gap: 7px;
+  margin: 16px 18px;
+  padding: 9px 16px; border: 1.5px solid var(--border);
+  border-radius: var(--r); font-size: 13px; font-weight: 600; color: var(--text-2);
+  transition: all var(--t); align-self: flex-start;
+}
+.sectionAction:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-bg); }
+
+/* Danger zone */
+.dangerRow {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 18px; gap: 12px; flex-wrap: wrap;
+}
+.deleteAccBtn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 9px 16px;
+  border: 1.5px solid var(--error);
+  border-radius: var(--r);
+  font-size: 13px; font-weight: 600;
+  color: var(--error);
+  transition: all var(--t);
+  flex-shrink: 0;
+}
+.deleteAccBtn:hover { background: var(--error); color: #fff; }
+
+/* Delete modal */
+.deleteBody { display: flex; flex-direction: column; gap: 16px; }
+.deleteIcon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: #FEF2F2; border: 2px solid #FCA5A5;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto;
+}
+.deleteText { font-size: 13.5px; color: var(--text-2); line-height: 1.65; }
+.deleteInputWrap { display: flex; flex-direction: column; gap: 6px; }
+.deleteLabel { font-size: 12.5px; color: var(--text-2); }
+.deleteInput {
+  padding: 10px 13px; border: 1.5px solid var(--border);
+  border-radius: var(--r); font-size: 13.5px; color: var(--text);
+  background: var(--surface-2); transition: border-color var(--t);
+}
+.deleteInput:focus { border-color: var(--error); outline: none; }
+.deleteActions { display: flex; gap: 10px; }
+.deleteConfirmBtn {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px;
+  padding: 11px; background: var(--error); color: #fff;
+  border-radius: var(--r); font-size: 13.5px; font-weight: 700;
+  transition: background var(--t);
+}
+.deleteConfirmBtn:disabled { opacity: 0.45; cursor: not-allowed; }
+.deleteConfirmBtn:not(:disabled):hover { background: #DC2626; }
+
+/* Logout */
+.logoutBtn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border: 1.5px solid var(--error-border);
+  border-radius: var(--r); font-size: 13.5px; font-weight: 600;
+  color: var(--error); transition: all var(--t);
+  align-self: flex-start;
+}
+.logoutBtn:hover { background: var(--error-bg); }
+
+@media (max-width: 600px) {
+  .grid2 { grid-template-columns: 1fr; }
+  .profileRow { flex-wrap: wrap; }
+  .compBar { width: 160px; }
+  .premiumCard { flex-direction: column; }
+}
