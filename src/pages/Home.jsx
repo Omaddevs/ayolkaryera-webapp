@@ -61,7 +61,7 @@ export default function Home() {
 
           <div className={s.heroVisual}>
             <img
-              src="/images/hero-woman.png?v=3"
+              src="/images/hero-woman.png?v=9"
               alt="Professional ayol — karyera platformasi"
               className={s.heroImage}
               width={420}

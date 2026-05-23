@@ -480,7 +480,7 @@
 @media (max-width: 767px) {
   .hero {
     width: 100%;
-    padding: var(--card-pad) var(--card-pad) 0;
+    padding: var(--card-pad);
     min-height: auto;
     box-sizing: border-box;
     border-radius: var(--r-xl);
@@ -493,23 +493,13 @@
 
   .heroContent {
     width: 100%;
-    padding-bottom: 16px;
+    padding-bottom: 0;
     max-width: none;
   }
 
   .heroVisual {
-    margin: 0 -8px;
+    display: none;
   }
-
-  .heroImage {
-    max-width: 320px;
-    max-height: 300px;
-    margin: 0 auto;
-  }
-
-  .badgeTop { top: 2%; left: 2%; }
-  .badgeMid { top: 40%; left: 0; }
-  .badgeBottom { bottom: 10%; right: 2%; }
 
   .heroTitle {
     font-size: clamp(20px, 5.5vw, 26px);
