@@ -241,14 +241,39 @@
   flex-direction: column;
 }
 
-.detailScroll { flex: 1; overflow-y: auto; padding: 20px; position: relative; }
+.detailTopBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.detailTopTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.detailScroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 20px;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
 
 .detailClose {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -256,11 +281,12 @@
   background: var(--surface-2);
   border: 1px solid var(--border);
   color: var(--text-3);
+  flex-shrink: 0;
   transition: all var(--t);
 }
 .detailClose:hover { background: var(--primary-light); color: var(--primary); }
 
-.detailHeader { display: flex; align-items: flex-start; gap: 14px; margin: 36px 0 16px; }
+.detailHeader { display: flex; align-items: flex-start; gap: 14px; margin: 0 0 16px; }
 
 .detailLogo {
   width: 56px;
@@ -431,7 +457,41 @@
   .filterPanel { display: none; }
   .filterOpen { display: block; position: fixed; top: 0; left: 0; bottom: 0; z-index: 200; border-radius: 0; border-right: 1px solid var(--border); box-shadow: var(--shadow-lg); width: 280px; }
   .listShrink { max-width: 100%; }
-  .detailPanel { position: fixed; inset: 0; width: 100%; z-index: 210; border-radius: 0; }
+
+  .pageDetailOpen {
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  .body {
+    height: auto;
+    min-height: 0;
+  }
+
+  .detailPanel {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    bottom: calc(var(--mobile-nav-h) + env(safe-area-inset-bottom, 0px));
+    width: 100%;
+    height: auto;
+    z-index: 180;
+    border-radius: 0;
+    border: none;
+    box-shadow: var(--shadow-lg);
+    touch-action: pan-y;
+  }
+
+  .detailScroll {
+    padding: 16px;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .detailMeta {
+    grid-template-columns: 1fr;
+  }
+
 }
 
 @media (max-width: 767px) {

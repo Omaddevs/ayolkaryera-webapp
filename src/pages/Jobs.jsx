@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import {
   Search, SlidersHorizontal, X, MapPin, Clock, DollarSign, Briefcase,
@@ -75,8 +75,20 @@ export default function Jobs() {
     ? allJobs.filter(j => j.id !== selected.id && (j.type === selected.type || j.location === selected.location)).slice(0, 3)
     : [];
 
+  useEffect(() => {
+    if (!selected) return undefined;
+
+    const scrollParent = document.querySelector('.page-shell');
+    const prevOverflow = scrollParent?.style.overflow ?? '';
+    if (scrollParent) scrollParent.style.overflow = 'hidden';
+
+    return () => {
+      if (scrollParent) scrollParent.style.overflow = prevOverflow;
+    };
+  }, [selected]);
+
   return (
-    <div className={s.page}>
+    <div className={`${s.page} ${selected ? s.pageDetailOpen : ''}`}>
       {/* ── Top bar ── */}
       <div className={s.topBar}>
         <div className={s.searchBox}>
@@ -199,11 +211,13 @@ export default function Jobs() {
         {/* ── Detail panel ── */}
         {selected && (
           <div className={s.detailPanel}>
-            <div className={s.detailScroll}>
-              <button className={s.detailClose} onClick={() => setSelected(null)}>
+            <div className={s.detailTopBar}>
+              <button type="button" className={s.detailClose} onClick={() => setSelected(null)} aria-label="Orqaga">
                 <ChevronLeft size={18} />
               </button>
-
+              <span className={s.detailTopTitle}>Ish tafsilotlari</span>
+            </div>
+            <div className={s.detailScroll}>
               <div className={s.detailHeader}>
                 <div className={s.detailLogo} style={{ background: selected.color }}>
                   <span style={{ color: selected.logoText, fontSize: selected.logo.length > 3 ? 12 : 14, fontWeight: 800 }}>
