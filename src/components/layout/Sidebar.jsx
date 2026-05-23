@@ -57,7 +57,6 @@ export default function Sidebar() {
           <NavLink to="/cv" className={s.aiBtn} onClick={() => dispatch({ type: 'CLOSE_SIDEBAR' })}>
             CV yaratish
           </NavLink>
-          <div className={s.aiEmoji}>📄✨</div>
         </div>
 
         <div className={s.footer}>

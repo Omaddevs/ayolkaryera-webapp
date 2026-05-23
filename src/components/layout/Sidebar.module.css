@@ -10,9 +10,7 @@
 .sidebar {
   width: var(--sidebar-w);
   min-width: var(--sidebar-w);
-  height: 100vh;
-  position: sticky;
-  top: 0;
+  height: 100dvh;
   background: var(--surface);
   border-right: 1px solid var(--border);
   display: flex;
@@ -170,15 +168,6 @@
 
 .aiBtn:hover { background: var(--primary-dark); }
 
-.aiEmoji {
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
-  font-size: 22px;
-  opacity: 0.3;
-  pointer-events: none;
-}
-
 .footer {
   display: flex;
   align-items: center;
@@ -225,6 +214,15 @@
 .toggleOn .thumb { left: 19px; }
 
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .sidebar {
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
 @media (max-width: 1023px) {
   .sidebar {
     position: fixed;

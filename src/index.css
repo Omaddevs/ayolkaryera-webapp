@@ -142,6 +142,17 @@ body {
 
 #root { width: 100%; min-height: 100vh; display: flex; flex-direction: column; }
 
+@media (min-width: 1024px) {
+  html, body, #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #root {
+    min-height: 0;
+  }
+}
+
 button { cursor: pointer; border: none; background: none; font-family: inherit; font-size: inherit; }
 input, select, textarea { font-family: inherit; font-size: inherit; outline: none; border: none; background: none; }
 a { text-decoration: none; color: inherit; }

@@ -70,6 +70,19 @@ export default function BannerSection() {
         onClose={() => setDetail(null)}
         title={detail?.title}
         width={520}
+        footer={
+          detail?.cta ? (
+            <button
+              type="button"
+              className={s.detailCta}
+              style={{ background: `linear-gradient(135deg, ${detail.color}, ${detail.color}cc)` }}
+              onClick={() => handleCta(detail.cta.path)}
+            >
+              {detail.cta.label}
+              <ArrowRight size={16} />
+            </button>
+          ) : null
+        }
       >
         {detail && (
           <div className={s.detail}>
@@ -111,18 +124,6 @@ export default function BannerSection() {
                   </li>
                 ))}
               </ul>
-            )}
-
-            {detail.cta && (
-              <button
-                type="button"
-                className={s.detailCta}
-                style={{ background: `linear-gradient(135deg, ${detail.color}, ${detail.color}cc)` }}
-                onClick={() => handleCta(detail.cta.path)}
-              >
-                {detail.cta.label}
-                <ArrowRight size={16} />
-              </button>
             )}
           </div>
         )}

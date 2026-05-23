@@ -1,14 +1,15 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.52);
-  backdrop-filter: blur(3px);
-  z-index: 1000;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 5000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
   animation: fadeIn 0.18s ease;
+  overscroll-behavior: contain;
 }
 
 @keyframes fadeIn {
@@ -23,10 +24,11 @@
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border);
   animation: slideUp 0.24s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-  max-height: 90vh;
+  max-height: min(90vh, 90dvh);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  min-height: 0;
 }
 
 @keyframes slideUp {
@@ -38,6 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   padding: 18px 22px 14px;
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
@@ -47,6 +50,9 @@
   font-size: 16px;
   font-weight: 700;
   color: var(--text);
+  line-height: 1.35;
+  flex: 1;
+  min-width: 0;
 }
 
 .close {
@@ -57,6 +63,7 @@
   align-items: center;
   justify-content: center;
   color: var(--text-3);
+  flex-shrink: 0;
   transition: all var(--t);
 }
 .close:hover { background: var(--surface-2); color: var(--text); }
@@ -65,11 +72,55 @@
   padding: 22px;
   overflow-y: auto;
   flex: 1;
+  min-height: 0;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
-@media (max-width: 600px) {
-  .overlay { padding: 0; align-items: flex-end; }
-  .dialog { border-radius: var(--r-xl) var(--r-xl) 0 0; max-height: 92vh; }
+.bodyWithFooter {
+  padding-bottom: 16px;
+}
+
+.footer {
+  flex-shrink: 0;
+  padding: 14px 22px calc(14px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+@media (max-width: 767px) {
+  .overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .dialog {
+    border-radius: var(--r-xl) var(--r-xl) 0 0;
+    max-height: min(85dvh, calc(100dvh - 8px));
+    width: 100%;
+  }
+
+  .header {
+    padding: 16px 16px 12px;
+  }
+
+  .title {
+    font-size: 15px;
+    padding-right: 4px;
+  }
+
+  .body {
+    padding: 16px;
+  }
+
+  .bodyWithFooter {
+    padding-bottom: 12px;
+  }
+
+  .footer {
+    padding: 12px 16px calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+
   @keyframes slideUp {
     from { transform: translateY(100%); }
     to   { transform: translateY(0); }
