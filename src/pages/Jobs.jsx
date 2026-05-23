@@ -8,6 +8,8 @@ import {
 import { jobs as allJobs } from '../data/mockData';
 import { useApp } from '../context/AppContext';
 import ApplyModal from '../components/ui/ApplyModal';
+import ShareSheet from '../components/ui/ShareSheet';
+import { buildJobSharePayload } from '../utils/jobShare';
 import s from './Jobs.module.css';
 
 const types     = ["To'liq stavka", "Yarim stavka", "Masofaviy", "Freelance", "Smenali ish"];
@@ -38,7 +40,8 @@ export default function Jobs() {
   const [sort,         setSort]        = useState('new');
   const [selected,     setSelected]    = useState(null);
   const [showFilters,  setShowFilters] = useState(false);
-  const [applyJob,     setApplyJob]    = useState(null); // ApplyModal target
+  const [applyJob,     setApplyJob]    = useState(null);
+  const [shareTarget,  setShareTarget] = useState(null);
 
   const filtered = allJobs
     .filter(j => {
@@ -64,9 +67,8 @@ export default function Jobs() {
   const hasFilters = filterType.length || filterLoc.length || filterSalary;
 
   const handleShare = (job, e) => {
-    e.stopPropagation();
-    navigator.clipboard?.writeText(`${window.location.origin}/jobs?q=${encodeURIComponent(job.title)}`);
-    toast(`"${job.title}" havolasi nusxalandi`, 'success');
+    e?.stopPropagation();
+    setShareTarget(job);
   };
 
   const isApplied = (jobId) => state.applications.some(a => a.jobId === jobId);
@@ -74,6 +76,13 @@ export default function Jobs() {
   const similarJobs = selected
     ? allJobs.filter(j => j.id !== selected.id && (j.type === selected.type || j.location === selected.location)).slice(0, 3)
     : [];
+
+  useEffect(() => {
+    const jobId = params.get('job');
+    if (!jobId) return;
+    const job = allJobs.find(j => String(j.id) === jobId);
+    if (job) setSelected(job);
+  }, [params]);
 
   useEffect(() => {
     if (!selected) return undefined;
@@ -333,8 +342,14 @@ export default function Jobs() {
         )}
       </div>
 
-      {/* Apply modal */}
       <ApplyModal job={applyJob} open={!!applyJob} onClose={() => setApplyJob(null)} />
+
+      <ShareSheet
+        open={!!shareTarget}
+        onClose={() => setShareTarget(null)}
+        payload={shareTarget ? buildJobSharePayload(shareTarget) : null}
+        onToast={toast}
+      />
     </div>
   );
 }

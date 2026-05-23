@@ -23,6 +23,46 @@
   animation: slideIn 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.toastSuccess {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+.toastError {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.toastWarning {
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+.toastInfo {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+:global([data-theme="dark"]) .toastSuccess {
+  background: #052e1f;
+  border-color: #065f46;
+}
+
+:global([data-theme="dark"]) .toastError {
+  background: #450a0a;
+  border-color: #7f1d1d;
+}
+
+:global([data-theme="dark"]) .toastWarning {
+  background: #422006;
+  border-color: #78350f;
+}
+
+:global([data-theme="dark"]) .toastInfo {
+  background: #172554;
+  border-color: #1e3a8a;
+}
+
 @keyframes slideIn {
   from { transform: translateX(110%); opacity: 0; }
   to   { transform: translateX(0);    opacity: 1; }
@@ -30,13 +70,32 @@
 
 .icon { flex-shrink: 0; display: flex; }
 
+.iconSuccess { color: #059669; }
+.iconError { color: #dc2626; }
+.iconWarning { color: #d97706; }
+.iconInfo { color: #2563eb; }
+
+:global([data-theme="dark"]) .iconSuccess { color: #34d399; }
+:global([data-theme="dark"]) .iconError { color: #f87171; }
+:global([data-theme="dark"]) .iconWarning { color: #fbbf24; }
+:global([data-theme="dark"]) .iconInfo { color: #60a5fa; }
+
 .msg {
   flex: 1;
   font-size: 13.5px;
   font-weight: 500;
-  color: var(--text);
   line-height: 1.4;
 }
+
+.msgSuccess { color: #065f46; }
+.msgError { color: #991b1b; }
+.msgWarning { color: #92400e; }
+.msgInfo { color: #1e40af; }
+
+:global([data-theme="dark"]) .msgSuccess { color: #a7f3d0; }
+:global([data-theme="dark"]) .msgError { color: #fecaca; }
+:global([data-theme="dark"]) .msgWarning { color: #fde68a; }
+:global([data-theme="dark"]) .msgInfo { color: #bfdbfe; }
 
 .close {
   color: var(--text-muted);
@@ -50,6 +109,12 @@
 .close:hover { color: var(--text); }
 
 @media (max-width: 480px) {
-  .container { top: auto; bottom: calc(var(--mobile-nav-h) + 12px); right: 12px; left: 12px; }
+  .container {
+    top: auto;
+    bottom: calc(var(--mobile-nav-h) + env(safe-area-inset-bottom, 0px) + 12px);
+    right: 12px;
+    left: 12px;
+    z-index: 6000;
+  }
   .toast { min-width: 0; max-width: 100%; }
 }

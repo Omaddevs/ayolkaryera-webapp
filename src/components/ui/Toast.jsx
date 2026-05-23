@@ -1,13 +1,12 @@
-import { useEffect } from 'react';
 import { CheckCircle, XCircle, AlertCircle, Info, X } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import s from './Toast.module.css';
 
 const cfg = {
-  success: { icon: CheckCircle, color: '#10B981', bg: '#ECFDF5', border: '#A7F3D0' },
-  error:   { icon: XCircle,     color: '#EF4444', bg: '#FEF2F2', border: '#FECACA' },
-  warning: { icon: AlertCircle, color: '#F59E0B', bg: '#FFFBEB', border: '#FDE68A' },
-  info:    { icon: Info,        color: '#3B82F6', bg: '#EFF6FF', border: '#BFDBFE' },
+  success: { icon: CheckCircle, toast: s.toastSuccess, iconCls: s.iconSuccess, msgCls: s.msgSuccess },
+  error:   { icon: XCircle,     toast: s.toastError,   iconCls: s.iconError,   msgCls: s.msgError   },
+  warning: { icon: AlertCircle, toast: s.toastWarning, iconCls: s.iconWarning, msgCls: s.msgWarning },
+  info:    { icon: Info,        toast: s.toastInfo,    iconCls: s.iconInfo,    msgCls: s.msgInfo    },
 };
 
 export default function ToastContainer() {
@@ -27,16 +26,12 @@ function Toast({ toast, onClose }) {
   const Icon = c.icon;
 
   return (
-    <div
-      className={s.toast}
-      style={{ background: c.bg, borderColor: c.border }}
-      role="alert"
-    >
-      <span className={s.icon} style={{ color: c.color }}>
+    <div className={`${s.toast} ${c.toast}`} role="alert">
+      <span className={`${s.icon} ${c.iconCls}`}>
         <Icon size={18} />
       </span>
-      <span className={s.msg}>{toast.message}</span>
-      <button className={s.close} onClick={onClose}>
+      <span className={`${s.msg} ${c.msgCls}`}>{toast.message}</span>
+      <button type="button" className={s.close} onClick={onClose} aria-label="Yopish">
         <X size={14} />
       </button>
     </div>
