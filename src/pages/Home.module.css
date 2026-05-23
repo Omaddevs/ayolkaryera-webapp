@@ -10,113 +10,188 @@
 
 /* Hero */
 .hero {
-  background: linear-gradient(135deg, #fff0f7 0%, #fce7f3 50%, #fdf4ff 100%);
-  border: 1.5px solid rgba(233,30,140,0.12);
-  border-radius: var(--r-xl);
-  padding: 28px 28px 0;
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: 20px;
-  align-items: flex-end;
+  background: linear-gradient(145deg, #fff8fb 0%, #fff0f6 42%, #fdf4ff 100%);
+  border: 1.5px solid rgba(233, 30, 140, 0.1);
+  border-radius: var(--r-2xl);
+  padding: 28px 32px 0;
   overflow: hidden;
   position: relative;
-  min-height: 200px;
 }
 
-.heroContent { padding-bottom: 28px; }
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::before {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(233, 30, 140, 0.14) 0%, transparent 68%);
+  top: -100px;
+  right: 8%;
+}
+
+.hero::after {
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(255, 192, 203, 0.45) 0%, transparent 70%);
+  bottom: -60px;
+  left: 35%;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 8px 20px;
+  align-items: flex-end;
+  position: relative;
+  z-index: 1;
+}
+
+.heroContent {
+  padding-bottom: 28px;
+  max-width: 480px;
+}
 
 .heroTitle {
-  font-size: 26px;
+  font-size: clamp(26px, 3.2vw, 34px);
   font-weight: 800;
   color: var(--text);
-  line-height: 1.22;
-  letter-spacing: -0.5px;
-  margin-bottom: 8px;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+  margin-bottom: 12px;
 }
 
 .heroSub {
-  font-size: 13.5px;
+  font-size: 15px;
   color: var(--text-3);
-  margin-bottom: 20px;
-  line-height: 1.5;
+  margin-bottom: 18px;
+  line-height: 1.55;
+  max-width: 400px;
 }
 
-.heroBtns { display: flex; gap: 10px; flex-wrap: wrap; }
+.heroBtns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
 .btnPrimary {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   background: var(--primary);
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
-  padding: 10px 20px;
-  border-radius: var(--r);
+  padding: 12px 24px;
+  border-radius: var(--r-full);
   transition: all var(--t);
   box-shadow: var(--shadow-primary);
 }
-.btnPrimary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+.btnPrimary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
 
 .btnOutline {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   background: var(--surface);
   color: var(--text);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
-  padding: 10px 20px;
-  border-radius: var(--r);
+  padding: 12px 24px;
+  border-radius: var(--r-full);
   border: 1.5px solid var(--border);
   transition: all var(--t);
+  box-shadow: var(--shadow-xs);
 }
-.btnOutline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
 
-.heroBadges {
+.btnOutline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.heroVisual {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-bottom: 28px;
-  flex-shrink: 0;
+  align-items: flex-end;
+  justify-content: center;
+  background: transparent;
+  align-self: stretch;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  background: transparent;
+}
+
+.floatingBadges {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
 .badge {
+  position: absolute;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   background: var(--surface);
-  border-radius: var(--r);
-  padding: 8px 12px;
-  box-shadow: var(--shadow-sm);
-  font-size: 11.5px;
+  border-radius: var(--r-md);
+  padding: 10px 14px;
+  box-shadow: 0 6px 24px rgba(233, 30, 140, 0.12);
+  font-size: 12.5px;
   font-weight: 600;
   color: var(--text);
   white-space: nowrap;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(233, 30, 140, 0.08);
 }
 
+.badgeTop { top: 4%; left: 0; }
+.badgeMid { top: 38%; left: -2%; }
+.badgeBottom { bottom: 8%; right: 0; }
+
 .badgeIcon {
-  width: 26px;
-  height: 26px;
-  border-radius: var(--r-sm);
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.heroIllust {
-  width: 150px;
-  height: 230px;
-  flex-shrink: 0;
-  align-self: flex-end;
-  filter: drop-shadow(0 8px 20px rgba(233,30,140,0.15));
-}
+.badgeIcon[data-color="green"] { background: #4caf50; }
+.badgeIcon[data-color="pink"] { background: var(--primary); }
+.badgeIcon[data-color="orange"] { background: #ff9800; }
 
 :global([data-theme="dark"]) .hero {
-  background: linear-gradient(135deg, #1a0815 0%, #2a0f22 45%, #1e1228 100%);
+  background: linear-gradient(145deg, #1a0815 0%, #2a0f22 48%, #1e1228 100%);
   border-color: rgba(233, 30, 140, 0.28);
+}
+
+:global([data-theme="dark"]) .hero::before {
+  background: radial-gradient(circle, rgba(233, 30, 140, 0.22) 0%, transparent 68%);
+}
+
+:global([data-theme="dark"]) .hero::after {
+  background: radial-gradient(circle, rgba(233, 30, 140, 0.12) 0%, transparent 70%);
 }
 
 :global([data-theme="dark"]) .heroSub {
@@ -126,6 +201,7 @@
 :global([data-theme="dark"]) .btnOutline {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
 }
 
 :global([data-theme="dark"]) .btnOutline:hover {
@@ -133,12 +209,9 @@
 }
 
 :global([data-theme="dark"]) .badge {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(233, 30, 140, 0.22);
-}
-
-:global([data-theme="dark"]) .heroIllust {
-  filter: drop-shadow(0 8px 24px rgba(233, 30, 140, 0.28));
+  background: rgba(24, 27, 37, 0.92);
+  border-color: rgba(233, 30, 140, 0.25);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
 }
 
 /* Search */
@@ -377,34 +450,76 @@
 
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 1023px) {
-  .hero { grid-template-columns: 1fr auto; }
-  .heroBadges { display: none; }
-  .heroTitle { font-size: 22px; }
-  .heroIllust { width: 130px; height: 200px; }
+  .hero {
+    padding: 28px 28px 0;
+  }
+
+  .heroInner {
+    grid-template-columns: 1fr minmax(220px, 48%);
+    gap: 8px;
+  }
+
+  .heroImage {
+    max-width: 300px;
+    max-height: 280px;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+
+  .badgeIcon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .badgeMid { left: -8%; }
 }
 
 @media (max-width: 767px) {
   .hero {
-    grid-template-columns: 1fr;
     width: 100%;
     padding: var(--card-pad) var(--card-pad) 0;
     min-height: auto;
     box-sizing: border-box;
+    border-radius: var(--r-xl);
+  }
+
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .heroContent {
     width: 100%;
-    padding-bottom: var(--card-pad);
+    padding-bottom: 16px;
+    max-width: none;
   }
 
-  .heroIllust { display: none; }
+  .heroVisual {
+    margin: 0 -8px;
+  }
+
+  .heroImage {
+    max-width: 320px;
+    max-height: 300px;
+    margin: 0 auto;
+  }
+
+  .badgeTop { top: 2%; left: 2%; }
+  .badgeMid { top: 40%; left: 0; }
+  .badgeBottom { bottom: 10%; right: 2%; }
 
   .heroTitle {
-    font-size: clamp(18px, 5.2vw, 22px);
-    line-height: 1.28;
+    font-size: clamp(20px, 5.5vw, 26px);
+    line-height: 1.25;
   }
 
-  .heroSub { font-size: 13px; }
+  .heroSub {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
 
   .heroBtns {
     flex-direction: column;
@@ -416,7 +531,7 @@
   .btnOutline {
     width: 100%;
     justify-content: center;
-    padding: 11px 16px;
+    padding: 12px 18px;
   }
 
   .searchSection { width: 100%; }

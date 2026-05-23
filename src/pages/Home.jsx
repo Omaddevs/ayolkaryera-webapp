@@ -45,25 +45,45 @@ export default function Home() {
     <div className={s.page}>
       {/* Hero */}
       <section className={s.hero}>
-        <div className={s.heroContent}>
-          <h1 className={s.heroTitle}>Xavfsiz ish toping,<br />kelajagingizni yarating!</h1>
-          <p className={s.heroSub}>Ayollar uchun ishonchli ish e'lonlari platformasi.</p>
-          <div className={s.heroBtns}>
-            <button className={s.btnPrimary} onClick={() => navigate('/jobs')}>
-              <Search size={15} /> Ish qidirish
-            </button>
-            <button className={s.btnOutline} onClick={() => navigate('/cv')}>
-              <FileText size={15} /> CV yaratish
-            </button>
+        <div className={s.heroInner}>
+          <div className={s.heroContent}>
+            <h1 className={s.heroTitle}>Xavfsiz ish toping,<br />kelajagingizni yarating!</h1>
+            <p className={s.heroSub}>Ayollar uchun ishonchli ish e'lonlari platformasi.</p>
+            <div className={s.heroBtns}>
+              <button type="button" className={s.btnPrimary} onClick={() => navigate('/jobs')}>
+                <Search size={16} /> Ish qidirish
+              </button>
+              <button type="button" className={s.btnOutline} onClick={() => navigate('/cv')}>
+                <FileText size={16} /> CV yaratish
+              </button>
+            </div>
           </div>
-        </div>
-        <div className={s.heroBadges}>
-          <div className={s.badge}><span className={s.badgeIcon} style={{background:'#4CAF50'}}><Shield size={13} color="#fff"/></span>Xavfsiz platforma</div>
-          <div className={s.badge}><span className={s.badgeIcon} style={{background:'#E91E8C'}}><Users size={13} color="#fff"/></span>Ayollar uchun</div>
-          <div className={s.badge}><span className={s.badgeIcon} style={{background:'#FF9800'}}><Star size={13} color="#fff"/></span>Ishonchli kompaniyalar</div>
-        </div>
-        <div className={s.heroIllust}>
-          <HeroSVG />
+
+          <div className={s.heroVisual}>
+            <img
+              src="/images/hero-woman.png?v=3"
+              alt="Professional ayol — karyera platformasi"
+              className={s.heroImage}
+              width={420}
+              height={520}
+              loading="eager"
+              decoding="async"
+            />
+            <div className={s.floatingBadges} aria-hidden>
+              <div className={`${s.badge} ${s.badgeTop}`}>
+                <span className={s.badgeIcon} data-color="green"><Shield size={14} color="#fff" /></span>
+                Xavfsiz platforma
+              </div>
+              <div className={`${s.badge} ${s.badgeMid}`}>
+                <span className={s.badgeIcon} data-color="pink"><Users size={14} color="#fff" /></span>
+                Ayollar uchun
+              </div>
+              <div className={`${s.badge} ${s.badgeBottom}`}>
+                <span className={s.badgeIcon} data-color="orange"><Star size={14} color="#fff" /></span>
+                Ishonchli kompaniyalar
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -171,31 +191,3 @@ function SelectDrop({ icon, placeholder, opts, value, onChange }) {
   );
 }
 
-function HeroSVG() {
-  return (
-    <svg viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%'}}>
-      <rect x="40" y="120" width="100" height="100" rx="14" fill="#f9a8d4"/>
-      <path d="M90 128 L68 145 L90 158 L112 145 Z" fill="#e879a8"/>
-      <rect x="73" y="98" width="24" height="28" rx="10" fill="#FBBF80"/>
-      <ellipse cx="90" cy="82" rx="28" ry="28" fill="#FBBF80"/>
-      <path d="M62 76 Q62 46 90 44 Q118 46 118 76 L115 62 Q106 38 90 38 Q74 38 65 62 Z" fill="#1a1a2e"/>
-      <path d="M62 76 Q58 92 63 103" stroke="#1a1a2e" strokeWidth="9" strokeLinecap="round"/>
-      <path d="M118 76 Q122 92 117 103" stroke="#1a1a2e" strokeWidth="9" strokeLinecap="round"/>
-      <ellipse cx="78" cy="82" rx="4.5" ry="5" fill="#1a1a2e"/>
-      <ellipse cx="102" cy="82" rx="4.5" ry="5" fill="#1a1a2e"/>
-      <circle cx="79.5" cy="80.5" r="1.5" fill="white"/>
-      <circle cx="103.5" cy="80.5" r="1.5" fill="white"/>
-      <path d="M80 93 Q90 100 100 93" stroke="#c17060" strokeWidth="2.2" strokeLinecap="round" fill="none"/>
-      <rect x="26" y="168" width="128" height="66" rx="10" fill="#e2e8f0"/>
-      <rect x="30" y="172" width="120" height="58" rx="8" fill="#1e293b"/>
-      <rect x="36" y="178" width="108" height="46" rx="5" fill="#0f172a"/>
-      <rect x="42" y="184" width="48" height="4" rx="2" fill="#E91E8C" opacity="0.8"/>
-      <rect x="42" y="192" width="76" height="2" rx="1" fill="#334155"/>
-      <rect x="42" y="198" width="64" height="2" rx="1" fill="#334155"/>
-      <rect x="42" y="204" width="70" height="2" rx="1" fill="#334155"/>
-      <rect x="20" y="232" width="140" height="7" rx="3.5" fill="#cbd5e1"/>
-      <path d="M62 138 Q40 162 38 174" stroke="#f9a8d4" strokeWidth="16" strokeLinecap="round"/>
-      <path d="M118 138 Q140 162 142 174" stroke="#f9a8d4" strokeWidth="16" strokeLinecap="round"/>
-    </svg>
-  );
-}
