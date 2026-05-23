@@ -85,7 +85,7 @@ export default function Jobs() {
   }, [params]);
 
   useEffect(() => {
-    if (!selected) return undefined;
+    if (!selected && !showFilters) return undefined;
 
     const scrollParent = document.querySelector('.page-shell');
     const prevOverflow = scrollParent?.style.overflow ?? '';
@@ -94,7 +94,7 @@ export default function Jobs() {
     return () => {
       if (scrollParent) scrollParent.style.overflow = prevOverflow;
     };
-  }, [selected]);
+  }, [selected, showFilters]);
 
   return (
     <div className={`${s.page} ${selected ? s.pageDetailOpen : ''}`}>
@@ -123,13 +123,34 @@ export default function Jobs() {
       </div>
 
       <div className={s.body}>
-        {/* ── Filter panel ── */}
+        {showFilters && (
+          <button
+            type="button"
+            className={s.filterBackdrop}
+            onClick={() => setShowFilters(false)}
+            aria-label="Filtrlarni yopish"
+          />
+        )}
+
         <aside className={`${s.filterPanel} ${showFilters ? s.filterOpen : ''}`}>
           <div className={s.filterHead}>
             <span className={s.filterTitle}>Filterlar</span>
-            {hasFilters && <button className={s.clearBtn} onClick={clearAll}>Tozalash</button>}
+            <div className={s.filterHeadActions}>
+              {hasFilters && (
+                <button type="button" className={s.clearBtn} onClick={clearAll}>Tozalash</button>
+              )}
+              <button
+                type="button"
+                className={s.filterClose}
+                onClick={() => setShowFilters(false)}
+                aria-label="Yopish"
+              >
+                <X size={18} />
+              </button>
+            </div>
           </div>
 
+          <div className={s.filterBody}>
           <FilterGroup title="Ish turi">
             {types.map(t => (
               <label key={t} className={s.checkRow}>
@@ -158,6 +179,13 @@ export default function Jobs() {
               </label>
             ))}
           </FilterGroup>
+          </div>
+
+          <div className={s.filterFooter}>
+            <button type="button" className={s.filterApply} onClick={() => setShowFilters(false)}>
+              {filtered.length} ta natijani ko'rish
+            </button>
+          </div>
         </aside>
 
         {/* ── Job list ── */}
