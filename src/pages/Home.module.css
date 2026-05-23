@@ -106,6 +106,33 @@
   filter: drop-shadow(0 8px 20px rgba(233,30,140,0.15));
 }
 
+:global([data-theme="dark"]) .hero {
+  background: linear-gradient(135deg, #1a0815 0%, #2a0f22 45%, #1e1228 100%);
+  border-color: rgba(233, 30, 140, 0.28);
+}
+
+:global([data-theme="dark"]) .heroSub {
+  color: var(--text-2);
+}
+
+:global([data-theme="dark"]) .btnOutline {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+:global([data-theme="dark"]) .btnOutline:hover {
+  background: var(--primary-bg);
+}
+
+:global([data-theme="dark"]) .badge {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(233, 30, 140, 0.22);
+}
+
+:global([data-theme="dark"]) .heroIllust {
+  filter: drop-shadow(0 8px 24px rgba(233, 30, 140, 0.28));
+}
+
 /* Search */
 .sectionTitle {
   font-size: 17px;

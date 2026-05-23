@@ -37,18 +37,6 @@
 
 .active { color: var(--primary) !important; }
 
-.active .iconWrap::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 3px;
-  background: var(--primary);
-  border-radius: var(--r-full);
-}
-
 .primary > .iconWrap {
   width: 48px;
   height: 48px;
