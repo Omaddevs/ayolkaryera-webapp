@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, FileText, Shield, Users, Star, Home as HomeIcon, Clock, Heart, ChevronDown, ChevronRight, MapPin, DollarSign, Briefcase, FileText as FT, Building, Headphones, Smile } from 'lucide-react';
 import JobCard from '../components/ui/JobCard';
+import BannerSection from '../components/home/BannerSection';
 import { jobs, stats, companies as allCompanies } from '../data/mockData';
 import s from './Home.module.css';
 
@@ -129,6 +130,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Banners */}
+      <BannerSection />
+
       {/* Stats */}
       <section className={s.statsGrid}>
         {stats.map((st, i) => {
@@ -149,7 +153,7 @@ export default function Home() {
 function SelectDrop({ icon, placeholder, opts, value, onChange }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className={s.selectWrap}>
+    <div className={`${s.selectWrap} ${open ? s.selectWrapOpen : ''}`}>
       <button className={s.select} onClick={() => setOpen(o => !o)}>
         <span className={s.selectIcon}>{icon}</span>
         <span className={`${s.selectText} ${!value ? s.ph : ''}`}>{value || placeholder}</span>

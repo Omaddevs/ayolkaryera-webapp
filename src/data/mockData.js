@@ -91,12 +91,12 @@ export const conversations = [
 
 // ─── Career Advice Articles ───────────────────────────────────────────────────
 export const articles = [
-  { id: 1, title: "CV yozishning 10 ta sirli usuli", category: "CV maslahat", readTime: "5 daqiqa", date: "20 May 2026", featured: true, color: '#E91E8C', emoji: '📄', desc: "Professional CV tuzishda ko'pchilik xato qiladigan nuqtalar va ularni bartaraf etish yo'llari haqida to'liq qo'llanma." },
-  { id: 2, title: "Suhbatga qanday tayyorlanish kerak?", category: "Suhbat tayyorligi", readTime: "7 daqiqa", date: "18 May 2026", featured: false, color: '#8B5CF6', emoji: '🎯', desc: "Ish suhbatida muvaffaqiyat qozonish uchun eng samarali tayyorlanish usullari va eng ko'p beriladigan savollar." },
-  { id: 3, title: "Masofaviy ishlash: afzallik va kamchiliklar", category: "Ish madaniyati", readTime: "4 daqiqa", date: "15 May 2026", featured: false, color: '#3B82F6', emoji: '🏠', desc: "Remote ish nima? Undan qanday unumli foydalanish mumkin? Masofaviy ishda samaradorlikni oshirish sirlari." },
-  { id: 4, title: "O'zbekistonda ayollar va karyera", category: "Karyera", readTime: "6 daqiqa", date: "12 May 2026", featured: false, color: '#10B981', emoji: '💼', desc: "Zamonaviy O'zbekistonda ayollar uchun karyera imkoniyatlari, muvaffaqiyatli ayollar tajribasi va ilhomlantiruvchi hikoyalar." },
-  { id: 5, title: "Maosh bo'yicha muzokaralar qanday olib borish kerak?", category: "Muzokaralar", readTime: "5 daqiqa", date: "10 May 2026", featured: false, color: '#F59E0B', emoji: '💰', desc: "Ko'pchilik o'zi haqiqatda loyiq bo'lgan maoshdan kam oladi. Muzokaralar orqali maoshingizni oshiring." },
-  { id: 6, title: "LinkedIn profilingizni professional qiling", category: "Shaxsiy brend", readTime: "8 daqiqa", date: "8 May 2026", featured: false, color: '#3A77FF', emoji: '🔗', desc: "LinkedIn — professional tarmoqlarning eng muhimi. Profilingizni 100% to'ldiring va recruiterlar e'tiborini torting." },
+  { id: 1, title: "CV yozishning 10 ta sirli usuli", category: "CV maslahat", readTime: "5 daqiqa", date: "20 May 2026", featured: true, color: '#E91E8C', icon: 'file-text', desc: "Professional CV tuzishda ko'pchilik xato qiladigan nuqtalar va ularni bartaraf etish yo'llari haqida to'liq qo'llanma." },
+  { id: 2, title: "Suhbatga qanday tayyorlanish kerak?", category: "Suhbat tayyorligi", readTime: "7 daqiqa", date: "18 May 2026", featured: false, color: '#8B5CF6', icon: 'target', desc: "Ish suhbatida muvaffaqiyat qozonish uchun eng samarali tayyorlanish usullari va eng ko'p beriladigan savollar." },
+  { id: 3, title: "Masofaviy ishlash: afzallik va kamchiliklar", category: "Ish madaniyati", readTime: "4 daqiqa", date: "15 May 2026", featured: false, color: '#3B82F6', icon: 'home', desc: "Remote ish nima? Undan qanday unumli foydalanish mumkin? Masofaviy ishda samaradorlikni oshirish sirlari." },
+  { id: 4, title: "O'zbekistonda ayollar va karyera", category: "Karyera", readTime: "6 daqiqa", date: "12 May 2026", featured: false, color: '#10B981', icon: 'briefcase', desc: "Zamonaviy O'zbekistonda ayollar uchun karyera imkoniyatlari, muvaffaqiyatli ayollar tajribasi va ilhomlantiruvchi hikoyalar." },
+  { id: 5, title: "Maosh bo'yicha muzokaralar qanday olib borish kerak?", category: "Muzokaralar", readTime: "5 daqiqa", date: "10 May 2026", featured: false, color: '#F59E0B', icon: 'dollar-sign', desc: "Ko'pchilik o'zi haqiqatda loyiq bo'lgan maoshdan kam oladi. Muzokaralar orqali maoshingizni oshiring." },
+  { id: 6, title: "LinkedIn profilingizni professional qiling", category: "Shaxsiy brend", readTime: "8 daqiqa", date: "8 May 2026", featured: false, color: '#3A77FF', icon: 'link-2', desc: "LinkedIn — professional tarmoqlarning eng muhimi. Profilingizni 100% to'ldiring va recruiterlar e'tiborini torting." },
 ];
 
 // ─── Nav items ────────────────────────────────────────────────────────────────
@@ -123,6 +123,87 @@ export const careerTools = [
   { id: 1, icon: 'user',           title: 'Suhbatga tayyorgarlik', desc: 'AI yordamida suhbat savollariga tayyorlanig', color: '#E91E8C', path: '/advice' },
   { id: 2, icon: 'briefcase',      title: 'Karyera maslahatlari',  desc: "Mutaxassislardan bepul maslahat olish",        color: '#8B5CF6', path: '/advice' },
   { id: 3, icon: 'graduation-cap', title: 'Onlayn kurslar',        desc: "Yangi kasb o'rganing va sertifikat oling",     color: '#3B82F6', path: '/advice' },
+];
+
+// ─── Promotional Banners ──────────────────────────────────────────────────────
+export const banners = [
+  {
+    id: 1,
+    tag: 'Premium',
+    title: 'AyolKaryera Premium',
+    subtitle: 'Karyerangiz uchun maxsus imkoniyatlar',
+    desc: 'Cheksiz ariza, AI suhbat tayyorgarligi va shaxsiy karyera maslahatlari.',
+    detail:
+      "AyolKaryera Premium obunasi bilan siz ish qidirish jarayonida barcha professional vositalardan cheklovsiz foydalanasiz. AI yordamchi suhbat savollariga tayyorlaydi, CVingizni baholaydi va sizga mos ish takliflarini tezroq topishga yordam beradi.",
+    features: [
+      'Cheksiz ishga ariza yuborish',
+      'AI suhbat tayyorgarligi',
+      'Shaxsiy karyera maslahatlari',
+      'Birinchi navbatda yangi e\'lonlar',
+    ],
+    color: '#E91E8C',
+    icon: 'crown',
+    validUntil: '30 Iyun 2026',
+    cta: { label: 'Premiumni ochish', path: '/settings' },
+    featured: true,
+  },
+  {
+    id: 2,
+    tag: 'Kurs',
+    title: 'Bepul IT kurslari',
+    subtitle: 'Ayollar uchun dasturlash boshlang\'ich',
+    desc: 'Python va veb-dasturlash bo\'yicha 8 haftalik bepul onlayn kurs.',
+    detail:
+      "AyolKaryera va IT hamkorlari tomonidan tashkil etilgan bepul kursda siz Python asoslari, HTML/CSS va zamonaviy veb-texnologiyalarni o'rganasiz. Kurs tugagach sertifikat va amaliyot imkoniyati taqdim etiladi.",
+    features: [
+      '8 haftalik onlayn darslar',
+      'Amaliy loyihalar',
+      'Sertifikat beriladi',
+      'Mentor yordami',
+    ],
+    color: '#3B82F6',
+    icon: 'graduation-cap',
+    validUntil: '15 Iyun 2026',
+    cta: { label: 'Kurslarni ko\'rish', path: '/advice' },
+  },
+  {
+    id: 3,
+    tag: 'Tadbir',
+    title: 'Karyera yarmarkasi 2026',
+    subtitle: '50+ kompaniya bir joyda',
+    desc: 'Toshkentda ayollar uchun maxsus karyera yarmarkasi — bepul qatnashish.',
+    detail:
+      "Yillik Karyera yarmarkasi 2026 da O'zbekistonning yetakchi kompaniyalari ishtirok etadi. Suhbatlar, master-klasslar va jonli ish e'lonlari bilan tanishing. Ro'yxatdan o'tish bepul.",
+    features: [
+      '50+ ish beruvchi kompaniya',
+      'Jonli suhbat va networking',
+      'CV maslahat stoli',
+      'Bepul kirish',
+    ],
+    color: '#8B5CF6',
+    icon: 'megaphone',
+    validUntil: '10 Iyun 2026',
+    cta: { label: 'Ro\'yxatdan o\'tish', path: '/companies' },
+  },
+  {
+    id: 4,
+    tag: 'Aksiya',
+    title: 'CV tekshiruvi bepul',
+    subtitle: 'Mutaxassislar tomonidan baholash',
+    desc: 'Professional CV yozing va mutaxassislar tomonidan bepul tekshiruv oling.',
+    detail:
+      "Cheklangan vaqt ichida CV yaratish va HR mutaxassislari tomonidan bepul tekshiruv xizmatidan foydalaning. CVingiz formati, mazmuni va ish beruvchi e'tiborini tortish darajasi baholanadi.",
+    features: [
+      'Professional CV shablonlari',
+      'HR mutaxassisi tekshiruvi',
+      'Tavsiyalar va tuzatishlar',
+      'PDF yuklab olish',
+    ],
+    color: '#10B981',
+    icon: 'file-text',
+    validUntil: '25 May 2026',
+    cta: { label: 'CV yaratish', path: '/cv' },
+  },
 ];
 
 export const stats = [

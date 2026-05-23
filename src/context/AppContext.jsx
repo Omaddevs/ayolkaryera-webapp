@@ -5,10 +5,46 @@ export const AppContext = createContext(null);
 
 // ─── Initial notifications ────────────────────────────────────────────────────
 const initNotifications = [
-  { id: 1, type: 'application', title: "Arizangiz ko'rib chiqilmoqda", body: "Uzum Market sizning arizangizni ko'rib chiqmoqda.", time: '2 soat oldin', read: false, icon: '📋' },
-  { id: 2, type: 'message',     title: 'Yangi xabar', body: "Humans Recruiting sizga xabar yubordi.", time: '5 soat oldin', read: false, icon: '💬' },
-  { id: 3, type: 'job',         title: "Yangi ish e'loni", body: "Sizning yo'nalishingizda 3 ta yangi ish e'loni qo'shildi.", time: 'Kecha', read: true, icon: '💼' },
-  { id: 4, type: 'system',      title: 'Profilingiz 80% to\'liq', body: "Profilingizni 100% to'ldiring va ko'proq takliflar oling.", time: '2 kun oldin', read: true, icon: '⭐' },
+  {
+    id: 1,
+    type: 'application',
+    title: "Arizangiz ko'rib chiqilmoqda",
+    body: "Uzum Market sizning arizangizni ko'rib chiqmoqda.",
+    detail: "Uzum Market HR jamoasi sizning arizangizni hozir ko'rib chiqmoqda. Odatda 2–5 ish kuni ichida javob olasiz. Profil va CV ma'lumotlaringiz to'liq ekanligiga ishonch hosil qiling.",
+    time: '2 soat oldin',
+    read: false,
+    action: { label: "Arizalarni ko'rish", path: '/applications' },
+  },
+  {
+    id: 2,
+    type: 'message',
+    title: 'Yangi xabar',
+    body: 'Humans Recruiting sizga xabar yubordi.',
+    detail: "Humans Recruiting mutaxassisi sizga ish taklifi bo'yicha savollar bilan murojaat qildi. Xabarni o'qib, tezda javob berishingiz tavsiya etiladi.",
+    time: '5 soat oldin',
+    read: false,
+    action: { label: 'Xabarlarni ochish', path: '/messages' },
+  },
+  {
+    id: 3,
+    type: 'job',
+    title: "Yangi ish e'loni",
+    body: "Sizning yo'nalishingizda 3 ta yangi ish e'loni qo'shildi.",
+    detail: "Marketing, HR va IT yo'nalishlarida 3 ta yangi ish e'loni paydo bo'ldi. Ularni ko'rib chiqing va mos keladiganlariga ariza yuboring.",
+    time: 'Kecha',
+    read: true,
+    action: { label: "Ishlarni ko'rish", path: '/jobs' },
+  },
+  {
+    id: 4,
+    type: 'system',
+    title: "Profilingiz 80% to'liq",
+    body: "Profilingizni 100% to'ldiring va ko'proq takliflar oling.",
+    detail: "Profilingiz deyarli tayyor. Telefon raqami, tajriba va ko'nikmalarni qo'shsangiz, ish beruvchilar sizni tezroq topadi va ko'proq takliflar olasiz.",
+    time: '2 kun oldin',
+    read: true,
+    action: { label: 'Profilni tahrirlash', path: '/settings' },
+  },
 ];
 
 // ─── Initial state ────────────────────────────────────────────────────────────
@@ -73,9 +109,10 @@ function reducer(state, action) {
         type: 'application',
         title: 'Ariza muvaffaqiyatli yuborildi!',
         body: `${job.company} — ${job.title} lavozimiga arizangiz qabul qilindi.`,
+        detail: `Tabriklaymiz! ${job.company} kompaniyasidagi "${job.title}" lavozimiga arizangiz muvaffaqiyatli yuborildi. HR jamoasi tez orada siz bilan bog'lanishi mumkin.`,
         time: 'Hozir',
         read: false,
-        icon: '✅',
+        action: { label: "Arizalarni ko'rish", path: '/applications' },
       };
       return {
         ...state,

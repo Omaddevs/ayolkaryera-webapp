@@ -1,8 +1,16 @@
 import { useState, useRef } from 'react';
 import {
   Camera, User, Bell, Shield, Moon, Globe, LogOut,
-  ChevronRight, Save, Edit3, Lock, Trash2, AlertTriangle, Eye, EyeOff
+  ChevronRight, Save, Edit3, Lock, Trash2, AlertTriangle, Eye, EyeOff,
+  Crown, Check, Sparkles, Zap, MessageCircle, BookOpen,
 } from 'lucide-react';
+
+const premiumFeatures = [
+  { icon: Zap, label: 'Cheksiz ariza yuborish' },
+  { icon: MessageCircle, label: 'AI suhbat tayyorgarligi' },
+  { icon: BookOpen, label: 'Karyera maslahatlari' },
+  { icon: Sparkles, label: 'Premium imkoniyatlar' },
+];
 import { useApp } from '../context/AppContext';
 import { user } from '../data/mockData';
 import Modal from '../components/ui/Modal';
@@ -170,12 +178,35 @@ export default function Settings() {
 
       {/* Premium */}
       <div className={s.premiumCard}>
-        <span className={s.premEmoji}>⭐</span>
-        <div className={s.premInfo}>
-          <h3 className={s.premTitle}>AyolKaryera Premium</h3>
-          <p className={s.premDesc}>Cheksiz ariza, suhbat tayyorgarligi AI, karyera maslahati va yana ko'p imkoniyatlar</p>
+        <div className={s.premiumGlow} aria-hidden />
+        <div className={s.premiumTop}>
+          <div className={s.premiumIconWrap}>
+            <Crown size={22} strokeWidth={2.25} />
+          </div>
+          <div className={s.premiumHead}>
+            <span className={s.premiumBadge}>Premium</span>
+            <h3 className={s.premTitle}>AyolKaryera Premium</h3>
+            <p className={s.premDesc}>
+              Karyerangizni keyingi bosqichga olib chiqing — barcha professional imkoniyatlar bir joyda.
+            </p>
+          </div>
         </div>
-        <button className={s.premBtn}>Aktivlashtirish <ChevronRight size={14} /></button>
+        <ul className={s.premiumFeatures}>
+          {premiumFeatures.map(({ icon: Icon, label }) => (
+            <li key={label} className={s.premiumFeature}>
+              <span className={s.premiumFeatureIcon}><Icon size={14} /></span>
+              <span>{label}</span>
+            </li>
+          ))}
+        </ul>
+        <button
+          type="button"
+          className={s.premBtn}
+          onClick={() => toast('Premium tez orada mavjud bo\'ladi!', 'success')}
+        >
+          Aktivlashtirish
+          <ChevronRight size={16} />
+        </button>
       </div>
 
       {/* Danger zone */}

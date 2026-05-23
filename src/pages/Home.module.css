@@ -163,7 +163,11 @@
   flex: 1;
   min-width: 130px;
   position: relative;
-  z-index: 10;
+  z-index: 1;
+}
+
+.selectWrapOpen {
+  z-index: 50;
 }
 
 .select {
@@ -201,7 +205,7 @@
   overflow: hidden;
 }
 
-.dropOverlay { position: fixed; inset: 0; z-index: 99; }
+.dropOverlay { position: fixed; inset: 0; z-index: 40; }
 
 .dropItem {
   display: block;

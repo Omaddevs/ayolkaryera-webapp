@@ -1,5 +1,7 @@
-import { useState } from 'react';
-import { ChevronRight, ChevronLeft, Check, Plus, Trash2, Download, Eye, User, Briefcase, GraduationCap, Star, FileText } from 'lucide-react';
+import { useState, useRef, forwardRef } from 'react';
+import { ChevronRight, ChevronLeft, Check, Plus, Trash2, Download, Eye, User, Briefcase, GraduationCap, Star } from 'lucide-react';
+import { useApp } from '../context/AppContext';
+import { downloadCvPdf, getCvFilename } from '../utils/downloadCvPdf';
 import s from './CV.module.css';
 
 const steps = [
@@ -16,8 +18,11 @@ const emptyExp = () => ({ id: Date.now(), company: '', position: '', from: '', t
 const emptyEdu = () => ({ id: Date.now(), school: '', degree: '', field: '', from: '', to: '' });
 
 export default function CV() {
+  const { toast } = useApp();
   const [step, setStep] = useState(1);
   const [preview, setPreview] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const cvRef = useRef(null);
 
   const [personal, setPersonal] = useState({ name: 'Malika Nosirova', title: 'Marketing mutaxassisi', phone: '+998 90 123 45 67', email: 'malika@example.com', location: "Toshkent, O'zbekiston", summary: "Kreativ va natijalarga yo'naltirilgan marketing mutaxassisi. 3 yillik tajriba." });
   const [exps, setExps] = useState([{ id: 1, company: 'Uzum Market', position: 'Marketing koordinator', from: '2023-01', to: '', current: true, desc: "SMM va kontent marketing boshqaruvi. Instagram auditoriyasini 40% ga oshirdim." }]);
@@ -30,6 +35,19 @@ export default function CV() {
 
   const progress = ((step - 1) / (steps.length - 1)) * 100;
 
+  const handleDownload = async () => {
+    if (!cvRef.current || downloading) return;
+    setDownloading(true);
+    try {
+      await downloadCvPdf(cvRef.current, getCvFilename(personal.name));
+      toast('CV PDF formatida yuklab olindi!', 'success');
+    } catch {
+      toast('CV yuklab olishda xatolik yuz berdi', 'error');
+    } finally {
+      setDownloading(false);
+    }
+  };
+
   return (
     <div className={s.page}>
       {/* Header */}
@@ -38,9 +56,21 @@ export default function CV() {
           <h1 className={s.pageTitle}>CV Yaratish</h1>
           <p className={s.pageSub}>AI yordamida professional CV tayyorlang</p>
         </div>
-        <button className={s.previewBtn} onClick={() => setPreview(v => !v)}>
-          <Eye size={15} /> {preview ? "Tahrirlash" : "Ko'rib chiqish"}
-        </button>
+        <div className={s.headerActions}>
+          {(preview || step === 5) && (
+            <button
+              className={s.downloadHeaderBtn}
+              onClick={handleDownload}
+              disabled={downloading}
+            >
+              <Download size={15} />
+              {downloading ? 'Yuklanmoqda...' : 'PDF yuklab olish'}
+            </button>
+          )}
+          <button className={s.previewBtn} onClick={() => setPreview(v => !v)}>
+            <Eye size={15} /> {preview ? "Tahrirlash" : "Ko'rib chiqish"}
+          </button>
+        </div>
       </div>
 
       {/* Progress */}
@@ -165,8 +195,9 @@ export default function CV() {
                   <div className={s.reviewItem}><Check size={15} color="var(--success)"/><span>{edus.length} ta ta'lim ma'lumoti</span></div>
                   <div className={s.reviewItem}><Check size={15} color="var(--success)"/><span>{skills.length} ta ko'nikma tanlandi</span></div>
                 </div>
-                <button className={s.downloadBtn} onClick={() => alert("CV yuklab olindi! (Demo mode)")}>
-                  <Download size={16}/> CV ni yuklab olish (PDF)
+                <button className={s.downloadBtn} onClick={handleDownload} disabled={downloading}>
+                  <Download size={16}/>
+                  {downloading ? 'PDF tayyorlanmoqda...' : 'CV ni yuklab olish (PDF)'}
                 </button>
                 <button className={s.previewFullBtn} onClick={() => setPreview(true)}>
                   <Eye size={16}/> To'liq ko'rib chiqish
@@ -192,7 +223,7 @@ export default function CV() {
         {/* Preview */}
         {(preview || step === 5) && (
           <div className={`${s.cvPreview} ${preview ? s.cvPreviewFull : ''}`}>
-            <CVPreview personal={personal} exps={exps} edus={edus} skills={skills} />
+            <CVPreview ref={cvRef} personal={personal} exps={exps} edus={edus} skills={skills} />
           </div>
         )}
       </div>
@@ -200,9 +231,9 @@ export default function CV() {
   );
 }
 
-function CVPreview({ personal, exps, edus, skills }) {
+const CVPreview = forwardRef(function CVPreview({ personal, exps, edus, skills }, ref) {
   return (
-    <div className={s.cv}>
+    <div ref={ref} className={s.cv}>
       <div className={s.cvHead}>
         <div className={s.cvAvatar}>{personal.name.split(' ').map(n=>n[0]).join('')}</div>
         <div>
@@ -253,7 +284,7 @@ function CVPreview({ personal, exps, edus, skills }) {
       )}
     </div>
   );
-}
+});
 
 function FormSection({ title, children }) {
   return <div className={s.formSection}><h2 className={s.formTitle}>{title}</h2>{children}</div>;
