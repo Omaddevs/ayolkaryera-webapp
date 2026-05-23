@@ -151,10 +151,14 @@
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 1023px) {
   .menuBtn { display: flex; }
+  .header {
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
 }
 
 @media (max-width: 600px) {
-  .header { padding: 0 14px; gap: 8px; }
+  .header { gap: 8px; }
   .profileInfo { display: none; }
   .profileBtn { padding: 4px; }
   .searchWrap { max-width: none; }

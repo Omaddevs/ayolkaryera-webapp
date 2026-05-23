@@ -1,4 +1,12 @@
-.page { display: flex; flex-direction: column; gap: 20px; }
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
 
 /* Hero */
 .hero {
@@ -376,7 +384,7 @@
 }
 
 @media (max-width: 767px) {
-  .hero { grid-template-columns: 1fr; padding: 20px; min-height: auto; }
+  .hero { grid-template-columns: 1fr; padding: 20px 0 0; min-height: auto; }
   .heroIllust { display: none; }
   .heroTitle { font-size: 22px; }
   .statsGrid { grid-template-columns: repeat(2, 1fr); }

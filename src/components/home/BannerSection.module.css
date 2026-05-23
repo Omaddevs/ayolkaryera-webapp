@@ -1,4 +1,12 @@
-.section { display: flex; flex-direction: column; gap: 12px; }
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
 
 .sectionHeader {
   display: flex;
@@ -278,13 +286,33 @@
     display: flex;
     gap: 10px;
     overflow-x: auto;
-    padding-bottom: 4px;
+    overflow-y: hidden;
+    padding-bottom: 14px;
+    margin-bottom: 2px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--primary-10);
   }
 
-  .bannerTrack::-webkit-scrollbar { height: 4px; }
-  .bannerTrack::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .bannerTrack::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .bannerTrack::-webkit-scrollbar-track {
+    background: var(--primary-10);
+    border-radius: var(--r-full);
+    margin-top: 6px;
+  }
+
+  .bannerTrack::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--primary) 0%, #ff6bb5 100%);
+    border-radius: var(--r-full);
+  }
+
+  .bannerTrack::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+  }
 
   .bannerCard {
     min-width: 240px;
