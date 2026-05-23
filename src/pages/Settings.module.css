@@ -1,4 +1,12 @@
-.page { display: flex; flex-direction: column; gap: 18px; max-width: 700px; }
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 700px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
 
 .pageTitle { font-size: 22px; font-weight: 800; color: var(--text); }
 
@@ -369,9 +377,12 @@
 }
 .logoutBtn:hover { background: var(--error-bg); }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
+  .page { max-width: 100%; gap: var(--page-gap); }
+  .header { flex-wrap: wrap; gap: 10px; }
   .grid2 { grid-template-columns: 1fr; }
   .profileRow { flex-wrap: wrap; }
-  .compBar { width: 160px; }
+  .compBar { width: 100%; max-width: 200px; }
   .premiumFeatures { grid-template-columns: 1fr; }
+  .premiumCard { padding: var(--card-pad); }
 }

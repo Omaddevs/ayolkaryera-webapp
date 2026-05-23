@@ -303,12 +303,13 @@
 @media (max-width: 600px) {
   .panel {
     position: fixed;
-    top: 56px;
-    left: 5px;
-    right: 5px;
+    top: calc(var(--header-h) + 4px);
+    left: max(var(--page-px), env(safe-area-inset-left, 0px));
+    right: max(var(--page-px), env(safe-area-inset-right, 0px));
     width: auto;
     border-radius: var(--r-xl);
     max-height: calc(100dvh - var(--header-h) - var(--mobile-nav-h) - 16px);
+    box-sizing: border-box;
   }
 
   .list {

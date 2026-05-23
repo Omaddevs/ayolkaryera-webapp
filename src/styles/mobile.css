@@ -1,0 +1,61 @@
+/* ─── Mobile layout system ─────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  #root {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* Direct children of main scroll area */
+  :global(.page-shell) {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  :global(.page-shell) > * {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* Prevent flex/grid blowout */
+  :global(.page-shell) section,
+  :global(.page-shell) article,
+  :global(.page-shell) aside,
+  :global(.page-shell) form {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  :global(.page-shell) img,
+  :global(.page-shell) svg,
+  :global(.page-shell) video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  :global(.page-shell) button,
+  :global(.page-shell) input,
+  :global(.page-shell) select,
+  :global(.page-shell) textarea {
+    max-width: 100%;
+  }
+
+  :global(.page-shell) h1,
+  :global(.page-shell) h2,
+  :global(.page-shell) h3,
+  :global(.page-shell) p {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}

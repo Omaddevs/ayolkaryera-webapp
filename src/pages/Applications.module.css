@@ -1,4 +1,12 @@
-.page { display: flex; flex-direction: column; gap: 18px; }
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
 
 .header { }
 .title { font-size: 22px; font-weight: 800; color: var(--text); }
@@ -188,7 +196,9 @@
 }
 
 @media (max-width: 767px) {
-  .statsRow { grid-template-columns: repeat(3, 1fr); }
+  .page { gap: var(--page-gap); }
+  .statsRow { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; }
+  .card { width: 100%; box-sizing: border-box; min-width: 0; }
   .cardRight { flex-wrap: wrap; }
   .salary { display: none; }
 }

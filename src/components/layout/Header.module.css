@@ -157,10 +157,38 @@
   }
 }
 
-@media (max-width: 600px) {
-  .header { gap: 8px; }
-  .profileInfo { display: none; }
-  .profileBtn { padding: 4px; }
-  .searchWrap { max-width: none; }
+@media (max-width: 767px) {
+  .header {
+    gap: 8px;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .searchWrap {
+    max-width: none;
+    min-width: 0;
+    flex: 1;
+    height: 38px;
+    padding: 0 10px;
+  }
+
   .searchInput { font-size: 16px; }
+
+  .actions { gap: 4px; }
+
+  .iconBtn {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .profileInfo { display: none; }
+
+  .profileBtn { padding: 2px; }
+
+  .menuBtn {
+    width: 36px;
+    height: 36px;
+  }
 }

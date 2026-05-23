@@ -18,7 +18,7 @@ export default function AppLayout() {
       <div className={s.main}>
         <Header />
         <main className={`${s.content} ${showRight ? s.withRight : ''}`}>
-          <div className={s.page}>
+          <div className={`${s.page} page-shell`}>
             <Outlet />
           </div>
           {showRight && <RightPanel />}

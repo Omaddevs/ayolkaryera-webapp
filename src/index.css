@@ -74,9 +74,35 @@
   --header-h:     62px;
   --mobile-nav-h: 62px;
 
+  /* Page spacing (desktop) */
+  --page-px:      24px;
+  --page-py:      20px;
+  --page-gap:     20px;
+  --card-pad:     16px;
+  --section-gap:  12px;
+
   /* === Transition === */
   --t: 0.18s ease;
   --t-slow: 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --page-px:     16px;
+    --page-py:     16px;
+    --page-gap:    16px;
+    --card-pad:    14px;
+    --section-gap: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --page-px:  14px;
+    --page-py:  14px;
+    --page-gap: 14px;
+    --card-pad: 12px;
+  }
 }
 
 /* Dark mode */

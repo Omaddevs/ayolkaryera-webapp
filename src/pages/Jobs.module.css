@@ -1,4 +1,14 @@
-.page { display: flex; flex-direction: column; gap: 16px; height: 100%; }
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
 
 .topBar {
   display: flex;
@@ -424,7 +434,13 @@
   .detailPanel { position: fixed; inset: 0; width: 100%; z-index: 210; border-radius: 0; }
 }
 
+@media (max-width: 767px) {
+  .page { gap: var(--page-gap); }
+  .topBar { flex-wrap: wrap; gap: 8px; width: 100%; }
+  .searchWrap { min-width: 0; flex: 1; width: 100%; }
+  .sortWrap { display: none; }
+}
+
 @media (max-width: 600px) {
   .topBar { gap: 8px; }
-  .sortWrap { display: none; }
 }

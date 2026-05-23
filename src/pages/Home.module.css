@@ -384,18 +384,152 @@
 }
 
 @media (max-width: 767px) {
-  .hero { grid-template-columns: 1fr; padding: 20px 0 0; min-height: auto; }
+  .hero {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: var(--card-pad) var(--card-pad) 0;
+    min-height: auto;
+    box-sizing: border-box;
+  }
+
+  .heroContent {
+    width: 100%;
+    padding-bottom: var(--card-pad);
+  }
+
   .heroIllust { display: none; }
-  .heroTitle { font-size: 22px; }
-  .statsGrid { grid-template-columns: repeat(2, 1fr); }
-  .filterRow { flex-wrap: wrap; }
-  .selectWrap { min-width: 45%; }
-  .companiesRow { gap: 8px; }
+
+  .heroTitle {
+    font-size: clamp(18px, 5.2vw, 22px);
+    line-height: 1.28;
+  }
+
+  .heroSub { font-size: 13px; }
+
+  .heroBtns {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .btnPrimary,
+  .btnOutline {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px;
+  }
+
+  .searchSection { width: 100%; }
+
+  .searchCard {
+    width: 100%;
+    padding: var(--card-pad);
+    box-sizing: border-box;
+  }
+
+  .sectionHeader {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: var(--section-gap);
+  }
+
+  .sectionTitle {
+    font-size: 16px;
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 0;
+  }
+
+  .seeAll {
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  .filterRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .selectWrap {
+    width: 100%;
+    min-width: 0;
+    flex: none;
+  }
+
+  .searchBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px;
+  }
+
+  .quickRow {
+    gap: 6px;
+    width: 100%;
+  }
+
+  .quickBtn {
+    flex: 1 1 calc(50% - 4px);
+    min-width: 0;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+    padding: 7px 10px;
+    font-size: 11px;
+  }
+
+  .moreBtn { flex-shrink: 0; }
+
+  .jobsCard {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .companiesRow {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+  }
+
+  .companyChip {
+    width: 100%;
+    min-width: 0;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  .companyName {
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+  }
+
+  .statCard {
+    min-width: 0;
+    padding: var(--card-pad);
+  }
+
+  .statVal { font-size: 17px; }
+  .statLabel { font-size: 10.5px; }
 }
 
-@media (max-width: 480px) {
-  .heroTitle { font-size: 19px; }
-  .statsGrid { grid-template-columns: repeat(2, 1fr); }
-  .selectWrap { min-width: 100%; }
-  .searchBtn { width: 100%; justify-content: center; }
+@media (max-width: 380px) {
+  .heroTitle { font-size: 18px; }
+
+  .quickBtn {
+    flex: 1 1 100%;
+  }
+
+  .companiesRow {
+    grid-template-columns: 1fr;
+  }
 }

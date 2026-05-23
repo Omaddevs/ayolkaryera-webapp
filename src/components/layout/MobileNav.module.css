@@ -9,10 +9,11 @@
   border-top: 1px solid var(--border);
   z-index: 150;
   align-items: center;
-  padding: 0 8px;
-  gap: 4px;
+  padding: 0 max(8px, env(safe-area-inset-left, 0px)) env(safe-area-inset-bottom, 0px) max(8px, env(safe-area-inset-right, 0px));
+  gap: 2px;
   box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .item {
@@ -36,6 +37,15 @@
 .item:hover { color: var(--primary); background: var(--primary-bg); }
 
 .active { color: var(--primary) !important; }
+
+@media (max-width: 380px) {
+  .label { font-size: 8.5px; }
+  .item { padding: 6px 2px; gap: 2px; }
+  .primary > .iconWrap {
+    width: 44px;
+    height: 44px;
+  }
+}
 
 .primary > .iconWrap {
   width: 48px;

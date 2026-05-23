@@ -1,4 +1,12 @@
-.page { display: flex; flex-direction: column; gap: 18px; }
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
 
 .header { }
 .title { font-size: 22px; font-weight: 800; color: var(--text); }
@@ -227,9 +235,16 @@
 }
 .seeAllBtn:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-bg); }
 
+@media (max-width: 767px) {
+  .page { gap: var(--page-gap); }
+  .header { flex-wrap: wrap; width: 100%; }
+  .searchBox { width: 100%; min-width: 0; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; width: 100%; }
+  .card { min-width: 0; width: 100%; box-sizing: border-box; }
+  .statsRow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+}
+
 @media (max-width: 600px) {
-  .grid { grid-template-columns: 1fr 1fr; }
-  .statsRow { grid-template-columns: repeat(2, 1fr); }
   .heroLogo { width: 58px; height: 58px; transform: translateY(29px); }
   .modalContent { padding-top: 40px; }
 }
